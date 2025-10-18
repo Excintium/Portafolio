@@ -1,87 +1,63 @@
-# Welcome to React Router!
+Portafolio Personal - Nicolás Fonseca (Excintium)
+Este repositorio contiene el código fuente de mi portafolio personal, construido como una aplicación web moderna. El objetivo es mostrar mis proyectos, experiencia profesional y formación académica de una manera limpia, interactiva y totalmente responsiva.
 
-A modern, production-ready template for building full-stack React applications using React Router.
+El proyecto está desarrollado con un stack moderno enfocado en React, utilizando renderizado del lado del servidor (SSR) gestionado por React Router.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/remix-run/react-router-templates/tree/main/default)
+Tecnologías Utilizadas
+Este portafolio está construido con:
 
-## Features
+Framework: React 19
 
-- 🚀 Server-side rendering
-- ⚡️ Hot Module Replacement (HMR)
-- 📦 Asset bundling and optimization
-- 🔄 Data loading and mutations
-- 🔒 TypeScript by default
-- 🎉 TailwindCSS for styling
-- 📖 [React Router docs](https://reactrouter.com/)
+Enrutamiento y SSR: React Router (con @react-router/dev)
 
-## Getting Started
+Bundler y Servidor Dev: Vite
 
-### Installation
+Lenguaje: TypeScript
 
-Install the dependencies:
+UI / Componentes: Ant Design (antd)
 
-```bash
+Testing: Vitest y React Testing Library
+
+Características Principales
+Renderizado del Lado del Servidor (SSR): Mejor performance inicial y SEO, gestionado por la configuración de React Router.
+
+Tema Claro y Oscuro: Selector de tema (Light/Dark mode) con persistencia de estado, usando useState en el Layout y variables CSS.
+
+Diseño Responsivo: Adaptable a dispositivos móviles, utilizando el hook Grid.useBreakpoint de Ant Design para un menú de navegación tipo "Drawer".
+
+Arquitectura de Componentes: Estructura limpia basada en Atomic Design (atoms, molecules, organisms).
+
+Alta Cobertura de Tests: Tests unitarios y de integración para todos los componentes, asegurando la robustez de la UI.
+
+Comandos del Proyecto
+Los scripts principales están definidos en package.json.
+
+Instalación
+Instala las dependencias del proyecto:
+
+Bash
+
 npm install
-```
+Desarrollo
+Inicia el servidor de desarrollo (con HMR y SSR) usando el CLI de React Router:
 
-### Development
+Bash
 
-Start the development server with HMR:
-
-```bash
 npm run dev
-```
+La aplicación estará disponible en http://localhost:5173.
 
-Your application will be available at `http://localhost:5173`.
+Testing
+Ejecuta la suite de tests unitarios con Vitest:
 
-## Building for Production
+Bash
 
-Create a production build:
+npm run test
+Build de Producción
+Crea la build optimizada para producción:
 
-```bash
+Bash
+
 npm run build
-```
+Esto generará los assets en la carpeta build/ (divididos en client/ y server/).
 
-## Deployment
-
-### Docker Deployment
-
-To build and run using Docker:
-
-```bash
-docker build -t my-app .
-
-# Run the container
-docker run -p 3000:3000 my-app
-```
-
-The containerized application can be deployed to any platform that supports Docker, including:
-
-- AWS ECS
-- Google Cloud Run
-- Azure Container Apps
-- Digital Ocean App Platform
-- Fly.io
-- Railway
-
-### DIY Deployment
-
-If you're familiar with deploying Node applications, the built-in app server is production-ready.
-
-Make sure to deploy the output of `npm run build`
-
-```
-├── package.json
-├── package-lock.json (or pnpm-lock.yaml, or bun.lockb)
-├── build/
-│   ├── client/    # Static assets
-│   └── server/    # Server-side code
-```
-
-## Styling
-
-This template comes with [Tailwind CSS](https://tailwindcss.com/) already configured for a simple default starting experience. You can use whatever CSS framework you prefer.
-
----
-
-Built with ❤️ using React Router.
+Este proyecto fue desarrollado por Nicolás Fonseca.
