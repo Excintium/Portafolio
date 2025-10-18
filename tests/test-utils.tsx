@@ -2,7 +2,7 @@ import React from 'react'
 import { render, type RenderOptions } from '@testing-library/react'
 import { MemoryRouter, type MemoryRouterProps } from 'react-router-dom'
 import { ConfigProvider, theme as antdTheme } from 'antd'
-import { corporateLightTheme } from '../app/theme'
+import { corporateLightTheme } from '~/theme'
 
 type UI = React.ReactElement
 interface ExtraOptions {
