@@ -114,7 +114,7 @@ describe("headerBar (desktop)", () => {
 
         // Acciones a la derecha
         const cv = screen.getAllByTestId("button-link").find((el) => el.textContent?.includes("Currículum"))!;
-        expect(cv).toHaveAttribute("href", "/cv.pdf");
+        expect(cv).toHaveAttribute("href", "https://docs.google.com/document/d/1KSLajagC4F3yaq-9w9qMB9GPWoCWdH4c/edit?usp=sharing&ouid=107969967437438795414&rtpof=true&sd=true");
         expect(cv).toHaveAttribute("target", "_blank");
         expect(within(cv).getByTestId("icon-cv")).toBeInTheDocument(); // Busca icono DENTRO del botón
 
@@ -124,7 +124,7 @@ describe("headerBar (desktop)", () => {
         expect(within(gh).getByTestId("icon-github")).toBeInTheDocument(); // Busca icono DENTRO del botón
 
         const li = screen.getAllByTestId("button-link").find((el) => el.textContent?.includes("LinkedIn"))!;
-        expect(li).toHaveAttribute("href", "https://www.linkedin.com/in/nicolas-fonseca-olivares/");
+        expect(li).toHaveAttribute("href", "https://www.linkedin.com/in/nicol%C3%A1s-fonseca");
         expect(li).toHaveAttribute("target", "_blank");
         expect(within(li).getByTestId("icon-linkedin")).toBeInTheDocument(); // Busca icono DENTRO del botón
     });
