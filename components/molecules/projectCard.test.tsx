@@ -1,15 +1,15 @@
 import React from "react";
 import { describe, it, expect, vi } from "vitest";
+// Importa 'within' para selecciones más precisas
 import { render, screen } from "@testing-library/react";
 
 // ====== Mocks ======
-
-// Espías para capturar props de antd
 const cardSpy = vi.fn();
 const metaSpy = vi.fn();
 
 vi.mock("antd", () => ({
     Card: Object.assign(
+        // Corrección: Destructuramos props no-HTML para que no pasen al div
         ({ children, hoverable, cover, ...rest }: any) => {
             cardSpy({ hoverable, ...rest });
             return (
@@ -31,7 +31,8 @@ vi.mock("antd", () => ({
             },
         }
     ),
-    Space: ({ children, ...rest }: any) => (
+    // Corrección: Destructuramos 'wrap' para que no pase al div
+    Space: ({ children, wrap, ...rest }: any) => (
         <div data-testid="space" {...rest}>
             {children}
         </div>
@@ -39,6 +40,7 @@ vi.mock("antd", () => ({
     Tag: ({ children }: any) => <span data-testid="tag">{children}</span>,
 }));
 
+// ====== SUT ======
 import { ProjectCard } from "./projectCard";
 
 // ====== Data ======
@@ -54,8 +56,15 @@ const props = {
 describe("projectCard", () => {
     it("renderiza el enlace externo con los atributos correctos", () => {
         render(<ProjectCard {...props} />);
-        const link = screen.getByRole("link", { name: props.title });
-        expect(link).toBeInTheDocument();
+
+        // Corrección: Busca el título primero
+        const heading = screen.getByRole('heading', { name: props.title });
+        // Luego, encuentra el enlace 'a' más cercano que lo contiene
+        const link = heading.closest('a');
+
+        expect(link).toBeInTheDocument(); // Verifica que el enlace existe
+
+        // Verifica los atributos en el enlace encontrado
         expect(link).toHaveAttribute("href", props.link);
         expect(link).toHaveAttribute("target", "_blank");
         expect(link).toHaveAttribute("rel", "noreferrer");
@@ -95,7 +104,7 @@ describe("projectCard", () => {
         const card = screen.getByTestId("card") as HTMLElement;
         const style = card.style;
         expect(style.borderRadius).toBe("16px");
-        expect(style.border).toContain("1px solid");
+        expect(style.border).toContain("1px solid var(--border-color");
     });
 
     it("snapshot del componente", () => {

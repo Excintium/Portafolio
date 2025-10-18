@@ -1,7 +1,7 @@
 import { styles } from "app/styles";
 import { profile } from "components/atoms/profile/profile";
 import { SectionTitle } from "components/atoms/sectionTitle";
-import { ProjectCard } from "components/molecules/proyectCard";
+import { ProjectCard } from "../molecules/projectCard";
 
 export interface ProjectsSectionProps {}
 
